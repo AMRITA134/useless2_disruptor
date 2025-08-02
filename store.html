@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fashion Bot - Outfit Selector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-box img.zoomed {
+      transform: scale(2.5);
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-box:hover {
+      box-shadow: 0 0 0 4px #ec4899; /* Tailwind pink-500 */
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-pink-200 min-h-screen flex flex-col items-center py-10">
+  <h1 class="text-4xl font-bold text-pink-800 mb-6">Choose Your Outfit</h1>
+
+  <div class="mb-6">
+    <label for="event" class="text-lg font-semibold mr-2">Shop:</label>
+    <select id="event" class="px-4 py-2 rounded-lg shadow-md" onchange="updateGrid()">
+      <option value="casual">Casual</option>
+      <option value="party">Party</option>
+      <option value="wedding">Wedding</option>
+    </select>
+  </div>
+
+  <div id="grid" class="grid grid-cols-2 gap-6 w-3/4 mb-8">
+    <!-- Image slots will be dynamically inserted -->
+  </div>
+
+  <script>
+    const imagesByCategory = {
+      casual: [
+        "https://i.pinimg.com/736x/62/a2/20/62a2201ea5dfce3397e404c02f1241b9.jpg",
+        "https://m.media-amazon.com/images/I/610iiaHwIqL._UY1100_.jpg",
+        "https://i.pinimg.com/236x/55/b3/2c/55b32c6003e4715ee4a89951aeacfe59.jpg",
+        "https://m.media-amazon.com/images/I/41Gz07BfaIL.jpg"
+      ],
+      party: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1wxpyHF_5tRRBxRwyMzgXrKr1WLbLCi6qA&s",
+        "https://target.scene7.com/is/image/Target/GUEST_f5859059-02aa-44c3-bfe2-b2fd75aa3689",
+        "https://spirit.scene7.com/is/image/Spirit/01436948-a?$Thumbnail$",
+        "https://i.pinimg.com/736x/b8/26/1a/b8261a0d01eb8593fb68d7a375dbf9dc.jpg"
+      ],
+      wedding: [
+        "https://nypost.com/wp-content/uploads/sites/2/2023/01/victor-rolf-dresses-05.jpg?quality=75&strip=all&w=682",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlXEUVIXwvVjQC5cOlYymqONVkqlHwXCP3mw&s",
+        "https://hips.hearstapps.com/hmg-prod/images/58ab0cc1280000af8f999fbb-1511982952.jpg",
+        "https://i.pinimg.com/originals/69/9a/9f/699a9f3c265b3825c69985c0e52b892f.jpg"
+      ]
+    };
+
+    function updateGrid() {
+      const selected = document.getElementById('event').value;
+      const grid = document.getElementById('grid');
+      grid.innerHTML = ''; // Clear current boxes
+
+      const images = imagesByCategory[selected] || [];
+
+      for (let i = 0; i < 4; i++) {
+        const imgSrc = images[i] || "https://via.placeholder.com/150?text=No+Image";
+
+        const box = document.createElement('div');
+        box.className = 'image-box w-full h-40 bg-white rounded-lg shadow-lg flex items-center justify-center';
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = `${selected} outfit ${i + 1}`;
+
+        img.onclick = () => {
+          document.querySelectorAll('.zoomed').forEach(el => {
+            if (el !== img) el.classList.remove('zoomed');
+          });
+          img.classList.toggle('zoomed');
+        };
+
+        box.appendChild(img);
+        grid.appendChild(box);
+      }
+    }
+
+    window.onload = updateGrid;
+  </script>
+</body>
+</html>
