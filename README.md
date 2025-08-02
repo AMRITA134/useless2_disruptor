@@ -1,39 +1,32 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+#  FIT / QUIT🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: DISRUPTOR
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Amrita Jyothi - AISAT
+- Member 2: Theres Manuela - AISAT
+
 
 ### Project Description
-[2-3 lines about what your project does]
+**Fit/Quit** is where fashion meets roast mode. Upload your photo, choose a wild outfit, and discover whether you *fit* the look—or should just *quit* trying. It’s brutally honest, hilariously savage, and dangerously fun.
+
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Too many people walk into parties thinking they look hot, when in reality... they're dressed like confused garden gnomes.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Fit/Quit bravely tackles this global crisis by delivering savage outfit roasts before the public suffers.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- frontend:HTML,CSS,Javascript
 
 ### Implementation
 For Software:
@@ -47,37 +40,19 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+https://drive.google.com/file/d/1vDV-pV9KiAUGZwtLxB0d76LbCKntBksR/view?usp=sharing
+front page
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+(https://drive.google.com/file/d/1ykMHtLDKSugeNcsDFVEouRvB-CUP4Uee/view?usp=sharing)
+outfit selector + image upload
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+https://drive.google.com/file/d/1pbbID8ZcyUJ_CO_RHIchXPkUvA8AhOuc/view?usp=sharing
+dress teasing
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+(https://drive.google.com/file/d/1CQov1F6F2K8cytVMQwYsfH-dxR_2kGm2/view?usp=sharing)
+store
 
 ### Project Demo
 # Video
@@ -88,9 +63,8 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Amrita Jyothi: debugging,design
+- Theres Manuela: image collection,debugging,design
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
