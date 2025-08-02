@@ -28,13 +28,9 @@ Fit/Quit bravely tackles this global crisis by delivering savage outfit roasts b
 For Software:
 - frontend:HTML,CSS,Javascript
 
-### Implementation
-For Software:
-# Installation
-[commands]
-
 # Run
-[commands]
+server is live at:
+https://useless2-disruptor.vercel.app/
 
 ### Project Documentation
 For Software:
