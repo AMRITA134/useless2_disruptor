@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fashion Bot - Upload Your Head & Select Dress</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-pink-200 min-h-screen flex flex-col items-center justify-center p-8">
+  <h1 class="text-4xl font-bold text-pink-800 mb-8">Choose Your Outfit & Upload Your Headshot</h1>
+
+  <div class="mb-6">
+    <label for="category" class="text-lg font-semibold mr-4">Select Dress Category:</label>
+    <select id="category" class="px-4 py-2 rounded-lg shadow-md">
+      <option value="pinkfluff">Pink Fluff</option>
+      <option value="llamapajamas">Llama Pajamas</option>
+      <option value="unicornhoodie">Unicorn Hoodie</option>
+      <option value="dinosauroveralls">Dinosaur Overalls</option>
+      <option value="potatosackgown">Potato Sack Gown</option>
+      <option value="croissantcape">Croissant Cape</option>
+      <option value="bananablazer">Banana Blazer</option>
+      <option value="cactusarmor">Cactus Armor</option>
+      <option value="flamingosuit">Flamingo Suit</option>
+    </select>
+  </div>
+
+  <div class="mb-6 w-full max-w-xs">
+    <label for="headshot" class="block text-lg font-semibold mb-2">Upload Your Headshot Image:</label>
+    <input
+      id="headshot"
+      type="file"
+      accept="image/*"
+      class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4
+             file:rounded-lg file:border-0
+             file:text-sm file:font-semibold
+             file:bg-pink-600 file:text-white
+             hover:file:bg-pink-700
+             cursor-pointer"
+    />
+  </div>
+
+  <button
+    onclick="submitData()"
+    class="mt-8 bg-pink-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-pink-700 transition"
+  >
+    Show My Outfit
+  </button>
+
+  <script>
+    function submitData() {
+      const category = document.getElementById('category').value;
+      const fileInput = document.getElementById('headshot');
+      if (!category) {
+        alert('Please select a dress category!');
+        return;
+      }
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert('Please upload your headshot image!');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const base64Image = e.target.result;
+
+        // Save dress and image data in sessionStorage (to avoid URL length issues)
+        sessionStorage.setItem('selectedDress', category);
+        sessionStorage.setItem('userHeadshot', base64Image);
+
+        // Redirect to details.html
+        window.location.href = 'details.html';
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
