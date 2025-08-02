@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dress Details - Fashion Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e9d5ff, #fbcfe8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .container {
+      background: white;
+      max-width: 600px;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .dress-container {
+      position: relative;
+      width: 350px;
+      height: 450px;
+      margin: 0 auto 2rem;
+      border-radius: 1rem;
+      overflow: visible;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #dress-img {
+      border-radius: 1rem;
+      user-select: none;
+      object-fit: contain;
+      /* Default size (can be overridden by classes below) */
+      width: 300px;
+      height: auto;
+    }
+    /* Custom sizes per dress */
+    #dress-img.img-pinkfluff {
+      width: 280px;
+      height: 359px;
+    }
+    #dress-img.img-llamapajamas {
+      width: 280px;
+      height: auto;
+    }
+    #dress-img.img-unicornhoodie {
+      width: 1000px;
+      height: 800px;
+    }
+    #dress-img.img-dinosauroveralls {
+      width: 200px;
+      height: 700px;
+ 
+      ;
+    }
+    #dress-img.img-potatosackgown {
+      width: 150px;
+      height: 800px;
+    }
+    #dress-img.img-croissantcape {
+      width: 400px;
+      height: 300px;
+      align-items: right;
+    }
+    #dress-img.img-bananablazer {
+      width: 320px;
+      height: auto;
+    }
+    #dress-img.img-cactusarmor {
+      width: 300px;
+      height: auto;
+    }
+    #dress-img.img-flamingosuit {
+      width: 310px;
+      height: auto;
+    }
+
+    #user-headshot {
+      position: absolute;
+      top: 80px; /* Adjust to place head properly */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      user-select: none;
+      background: white;
+    }
+    pre {
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.5;
+      user-select: none;
+    }
+    button {
+      margin-top: 2rem;
+      background-color: #db2777;
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #be185d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="dress-name" class="text-3xl font-bold mb-6 text-pink-700"></h1>
+
+    <div class="dress-container">
+      <img id="dress-img" src="" alt="Dress Image" draggable="false" />
+      <img id="user-headshot" src="" alt="Your Headshot" draggable="false" />
+    </div>
+
+    <pre id="teasing-text"></pre>
+
+    <button onclick="goBack()">Back to Selection</button>
+  </div>
+
+  <script>
+    const dressDetails = {
+      pinkfluff: {
+        name: "Pink Fluff",
+        img: "https://i.pinimg.com/736x/15/32/ff/1532ffa21f3f2c8fa884942b377bde4b.jpg",
+        teasing: `Pink Fluff, huh? Trying to look sweet but we all know it’s just a desperate attempt to distract from your personality.\n
+Wearing this will get you compliments, sure — but mostly from toddlers and confused pigeons.\n
+Prediction: You'll spend more time fixing this mess than actually having fun. Good luck keeping that fluff from swallowing you whole!`
+      },
+      llamapajamas: {
+        name: "Llama Pajamas",
+        img: "https://i.pinimg.com/originals/18/53/01/1853016ea073e4ef14c89836a9ad5a47.jpg",
+        teasing: `Llama Pajamas? Cute choice if you want to signal “I gave up” loud and clear.\n
+Congrats, you’ve officially entered the realm of people who nap more than they socialize.\n
+Prediction: Prepare for strangers to ask if you’re homeless or just really committed to your lazy vibe.`
+      },
+      unicornhoodie: {
+        name: "Unicorn Hoodie",
+        img: "https://5.imimg.com/data5/ECOM/Default/2024/3/401527031/BI/MK/FM/94639386/magical-unicorn-hoodie-sweatshirt-pink-419-500x500.jpg",
+        teasing: `The Unicorn Hoodie — perfect for when you want to remind everyone you peaked in middle school.\n
+Warning: Wearing this might cause permanent eye-rolls from anyone with functioning taste.\n
+Prediction: You’ll sparkle alright... mostly from embarrassment and secondhand cringe.`
+      },
+      dinosauroveralls: {
+        name: "Dinosaur Overalls",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTGLmM27b8IjFD1MMDYFhbTRJdIfebmGGJhQ&s",
+        teasing: `Dinosaur Overalls? Interesting choice for someone stuck in the stone age of fashion.\n
+You’ll either look adorable or like a walking costume party reject. There is no in-between.\n
+Prediction: Get ready for awkward “awws” mixed with pity laughs. Embrace it, buddy.`
+      },
+      potatosackgown: {
+        name: "Potato Sack Gown",
+        img: "https://m.media-amazon.com/images/I/6177RXcIwTL.jpg",
+        teasing: `Potato Sack Gown says one thing loud and clear: "I give up."\n
+You’ll look like you lost a bet or ran out of clean clothes... both equally believable.\n
+Prediction: Prepare for people asking if you’re hiding snacks or just hiding your personality.`
+      },
+      croissantcape: {
+        name: "Croissant Cape",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNL8g73yQ2o9Lw_BrCKM1Y4mHcIxuuvMArA&s",
+        teasing: `Croissant Cape? Nothing says "I’m flaky" better than this.\n
+People might like the smell, but they won’t be sticking around for long.\n
+Prediction: You’ll attract hunger, confusion, and probably a few “What is that?!” stares. Own it or run.`
+      },
+      bananablazer: {
+        name: "Banana Blazer",
+        img: "https://img.freepik.com/premium-photo/banana-man-fashion-editorial-style-man-banana-suit_443830-34727.jpg",
+        teasing: `Banana Blazer, huh? Hope you’re ready to slip on your own jokes.\n
+You’ll be the punchline whether you like it or not, so embrace the peel.\n
+Prediction: Expect a lot of "nice suit, did you dress yourself in the dark?" comments. Ouch, but fair.`
+      },
+      cactusarmor: {
+        name: "Cactus Armor",
+        img: "https://spirit.scene7.com/is/image/Spirit/01561000-c?wid=640&hei=640&fmt=webp",
+        teasing: `Cactus Armor is for the prickly personalities who want to keep everyone at bay.\n
+Fashion statement: Don’t touch me, I might hurt you.\n
+Prediction: You’ll look like a walking warning sign. But hey, at least you’re unique!`
+      },
+      flamingosuit: {
+        name: "Flamingo Suit",
+        img: "https://s7.orientaltrading.com/is/image/OrientalTrading/gc7134?$PDP_VIEWER_IMAGE$",
+        teasing: `Flamingo Suit screams "Look at me, I’m fabulous and I know it."\n
+You’ll stand out in a crowd, for better or worse.\n
+Prediction: Prepare for compliments and jealous stares. Or just confused looks. Either way, own your flair!`
+      }
+    };
+
+    function goBack() {
+      sessionStorage.clear();
+      window.location.href = 'index.html';
+    }
+
+    function loadDetails() {
+      const dressKey = sessionStorage.getItem('selectedDress');
+      const userHeadshot = sessionStorage.getItem('userHeadshot');
+
+      if (!dressKey || !userHeadshot) {
+        alert('Missing data! Redirecting back.');
+        goBack();
+        return;
+      }
+
+      const dress = dressDetails[dressKey];
+
+      if (!dress) {
+        alert('Invalid dress selected! Redirecting back.');
+        goBack();
+        return;
+      }
+
+      document.getElementById('dress-name').textContent = dress.name;
+
+      const dressImg = document.getElementById('dress-img');
+      dressImg.src = dress.img;
+
+      // Remove any previous dress-specific class, then add new one
+      dressImg.className = '';
+      dressImg.classList.add(`img-${dressKey}`);
+
+      document.getElementById('user-headshot').src = userHeadshot;
+      document.getElementById('teasing-text').textContent = dress.teasing;
+    }
+
+    window.onload = loadDetails;
+  </script>
+</body>
+</html>
