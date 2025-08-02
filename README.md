@@ -52,11 +52,8 @@ store
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1D7reTSwqSaFBUJU92Ahg-Mug6-PT1qO_/view?usp=sharing
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - Amrita Jyothi: debugging,design
